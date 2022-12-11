@@ -22,7 +22,7 @@ def main():
     B_B_side = get_side("blue center")
 
 
-    #The order is relevant, koceimba takes up, right front down left back
+    #The order is relevant, koceimba takes up, right front down left back sides in that order particulary
     kociemba_input = W_U_side+R_R_side+G_F_side+Y_D_side+O_L_side+B_B_side
     print(kociemba_input)
     print(kociemba.solve(kociemba_input))
