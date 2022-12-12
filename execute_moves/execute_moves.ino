@@ -1,6 +1,4 @@
-
 using namespace std;
-
 
 int execute_moves(String moves_to_exec[]) {
   // put your main code here, to run repeatedly:
@@ -16,25 +14,26 @@ int execute_moves(String moves_to_exec[]) {
 
 
 
-
 void setup() {  
   delay(500);
   Serial.begin(9600);
+  //highest value a solution can be
+  int move_limit = 40;
 
   //listen to laptop to fill this variable's information out.
-  char * string_moves_to_exec = "D2 R' D' F2 B D R2 D2 R' F2 D' F2 U' B2 L2 U2 D R2 U";
-  char *token;
+  char buf[] ="D2 R' D' F2 B D R2 D2 R' F2 D' F2 U' B2 L2 U2 D R2 U";
+  int i = 0;
+  char *p = strtok (buf, " ");
 
-   token = strtok(string_moves_to_exec, ' ');
-
-   while (token != NULL) {
-      Serial.println(token);
-      token=strtok(NULL, ' ');
-   }
+  char *array[move_limit] = {"A"};
+  while (p != NULL)
+  {
+      array[i++] = p;
+      p = strtok (NULL, " ");
+  }
+  for (i = 0; i < move_limit ; ++i) 
+      Serial.println(array[i]);
 }
-
-
-
 
 void loop(){
 
