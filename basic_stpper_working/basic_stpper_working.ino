@@ -18,8 +18,12 @@ pinMode(8,OUTPUT);
 pinMode(9,OUTPUT);
 pinMode(10,OUTPUT);
 pinMode(11,OUTPUT);
-
-
+digitalWrite(7,0);
+digitalWrite(8,0);
+digitalWrite(9,0);
+digitalWrite(10,0);
+digitalWrite(11,0);
+delay(5000);
 }
 
 void write(int a,int b,int c,int d){
@@ -50,14 +54,13 @@ delay(1);
 
 void loop(){
 
-digitalWrite(6,HIGH);
-
-int i;
-i=0;
-while(i<(NUMBER_OF_STEPS_PER_REV/4)){
-onestep();
-i++;
+  for (int i = 6; i<12; i++){
+    digitalWrite(i,HIGH);
+    int j=0;
+    while(j<(NUMBER_OF_STEPS_PER_REV/4)){
+    onestep();
+    j++;
+    }
+    digitalWrite(i,0);
   }
-delay(1000);
-
 }
