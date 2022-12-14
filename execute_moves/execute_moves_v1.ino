@@ -30,7 +30,7 @@ void setup() {
 
 
   //listen to laptop to fill this variable's information out.
-  char buf[] ="D2 R' D' F2 B D R2 D2 R' F2 D' F2 U' B2 L2 U2 D R2 U";
+  char buf[] ="B B2 B2 B B' B2";
   execute_moves(buf);
 }
 
@@ -51,23 +51,26 @@ void rotate(int pin, char arg2, char arg3) {
   digitalWrite(pin, HIGH);
   int j=0;
   //perform the steps
-  while(j<(NUMBER_OF_STEPS_PER_REV/(4/times))){
-    if (!reverse) {
-      onestep();
-    }
-    else {
-      reverseOneStep();
-    }
+  if (!reverse) {
+    while(j<(NUMBER_OF_STEPS_PER_REV/(4/times))){
+    onestep();
     j++;
+    }
+  }
+  else {
+    while(j<(NUMBER_OF_STEPS_PER_REV/(4/times))){
+    reverseOneStep();
+    j++;
+    }
   }
   digitalWrite(pin, 0);
 }
+
 
 void loop(){
 }
 
 int execute_moves(char moves_to_exec[]) {
-  Serial.println(moves_to_exec[0]);
   //read each move (tokenized by space only) into an array
   //for each input in the array, (there are a total of 3 * 6 18 possible values in the array to check)
   //check case, and execute move
@@ -86,6 +89,7 @@ int execute_moves(char moves_to_exec[]) {
 
   for (i = 0; i < move_limit; ++i) {
     char *move = moves[i];
+    Serial.println(move);
     switch(move[0]) 
     {
       case 'F': 
@@ -106,10 +110,10 @@ int execute_moves(char moves_to_exec[]) {
       case 'D':
         rotate(11, move[1], move[2]);
         break;
-      default: Serial.println("H");
+      default:;
     } 
+    delay(1000);
   }
-
   return 0;
 }
 
