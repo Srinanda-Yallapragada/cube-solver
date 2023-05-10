@@ -1,6 +1,10 @@
 # Cube-Solver
 
-## Credits:
+## Quick About
+Course final project for CS335 at UMass Amherst during the Fall 2022 semester.
+Created by Krisna Lach and Srinanda Yallapragada.
+
+## Credits
 cube_solver.py was NOT written by either of us. It was from Simon Massey. Github repository found here: 
 https://github.com/simbo1905/CubieMoves
 It requires additional files to be able to run, but they aren't included here for brevity sake.
@@ -14,7 +18,7 @@ A few tweaks have been made such that it would be usable in our project.
 ### Picture of the robot finished solving a cube
 ![Picture of the robot finished solving a cube.](https://github.com/Srinanda-Yallapragada/cube-solver/blob/main/images/Image%20of%20robot%20holding%20a%20solved%20cube.jpg)
 
-## The Report:
+## The Report
 ### 1. Description of what the project does. 
 The project first uses a webcam and the cv2 library to take 6 images of each of the rubik’s cube sides. After saving the 6 images, it sends them to two separate algorithms (neither of which we wrote, cited later), one that translates the images into a string, and the second one that takes the string and outputs a solution string, which is the set of moves to perform to solve the cube. It writes this to the .ino file, which tells the motors to perform the set of moves. The motors connect to the cube with 3D printed arms that act as cube caps. Our hardware connected to the Arduino consists of 6 stepper motors connected to 6 motor drives. These are powered by an external power supply and we regulate the power with MOSFETs. Outputs are sent from the Arduino to the motors, and to make sure we had enough pins, we used enable pins to decide which motor to send data to. The biggest limitations of the project are that the image processing algorithm requires good photos, which is hard to always get consistently, and that the motor arms sometimes pop out of the cube when turning, which invalidates the whole solving process. Thus, the project is inconsistent and dependent on somewhat precise user input (proper photos, consistent insertion of cube arm into cube).
 
