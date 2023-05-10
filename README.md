@@ -8,9 +8,9 @@ A few tweaks have been made such that it would be usable in our project.
 
 ## Project Images
 
-[Picture of demo of scanning cube faces.](https://github.com/Srinanda-Yallapragada/cube-solver/blob/main/images/Image%20of%20capturing%20cube%20faces.jpg)
+![Picture of demo of scanning cube faces.](https://github.com/Srinanda-Yallapragada/cube-solver/blob/main/images/Image%20of%20capturing%20cube%20faces.jpg)
 
-[Picture of the robot finished solving a cube.](https://github.com/Srinanda-Yallapragada/cube-solver/blob/main/images/Image%20of%20robot%20holding%20a%20solved%20cube.jpg)
+![Picture of the robot finished solving a cube.](https://github.com/Srinanda-Yallapragada/cube-solver/blob/main/images/Image%20of%20robot%20holding%20a%20solved%20cube.jpg)
 
 ## The Report:
 ### 1. Description of what the project does. 
