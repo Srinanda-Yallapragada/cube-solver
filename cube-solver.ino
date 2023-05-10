@@ -1,7 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
 #define A 2
 #define B 3
 #define C 4
@@ -10,9 +6,8 @@ using namespace std;
 //Mark it with the correst side up
 #define NUMBER_OF_STEPS_PER_REV 512
 
-void setup() {  
+void setup() {
   Serial.begin(9600);
-  while(!Serial);
 
   //Setting up motors
   pinMode(A,OUTPUT); 
@@ -34,8 +29,9 @@ void setup() {
 
 
   //listen to laptop to fill this variable's information out.
-  char buf[] ="";
-  //execute_moves(buf);
+  char buf[] ="D R2 L F' R'";
+  delay(10000);
+  execute_moves(buf);
 }
 
 // rotation function
@@ -70,25 +66,7 @@ void rotate(int pin, char arg2, char arg3) {
   digitalWrite(pin, 0);
 }
 
-// input/output adapted from https://www.tutorialspoint.com/read-data-from-a-text-file-using-cplusplus
 void loop(){
-  char *sol;
-  char takeInput = 'n';
-  Serial.println("Enter in 'y' to read in the solution:");
-  while (takeInput != 'y') {
-    takeInput = Serial.read();
-  }
-  //fstream newfile;
-  //newfile.open("solution.txt", ios::in); //open file to read
-  ifstream newfile("solution.txt", ios_base::in);
-  if (newfile.is_open()) {
-    Serial.println("Got here");
-    string solString;
-    getline(newfile, solString);
-    strcpy(sol, solString.c_str());
-  }
-  
-  newfile.close();
 }
 
 int execute_moves(char moves_to_exec[]) {
@@ -133,7 +111,7 @@ int execute_moves(char moves_to_exec[]) {
         break;
       default:;
     } 
-    delay(1000);
+    delay(400);
   }
   return 0;
 }
